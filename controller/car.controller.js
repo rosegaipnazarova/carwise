@@ -49,9 +49,9 @@ const getOneCar = async (req, res, next) => {
 const addCar = async (req, res, next) => {
     try {
 
-        const { brand, model, tanirovka, motor, year, color, distance, gearbook, description, price, imageUrl } = req.body
+        const { brand, model, tanirovka, motor, year, color, distance, gearbox, description, price, imageUrl } = req.body
 
-        await CarSchema.create({ brand, model, tanirovka, motor, year, color, distance, gearbook, description, price, imageUrl })
+        await CarSchema.create({ brand, model, tanirovka, motor, year, color, distance, gearbox, description, price, imageUrl })
 
         res.status(201).json({
             message: "Added new car"
@@ -66,7 +66,7 @@ const addCar = async (req, res, next) => {
 const updateCar = async (req, res, next) => {
     try {
 
-        const { brand, model, tanirovka, motor, year, color, distance, gearbook, description, price, imageUrl } = req.body
+        const { brand, model, tanirovka, motor, year, color, distance, gearbox, description, price, imageUrl } = req.body
         const { id } = req.params
 
         const foundedCar = await CarSchema.findById(id)
@@ -74,7 +74,7 @@ const updateCar = async (req, res, next) => {
              throw CustomErrorhandler.NotFound("Car not found")
 
         }
-        await CarSchema.findByIdAndUpdate(id, { brand, model, tanirovka, motor, year, color, distance, gearbook, description, price, imageUrl })
+        await CarSchema.findByIdAndUpdate(id, { brand, model, tanirovka, motor, year, color, distance, gearbox, description, price, imageUrl })
 
         res.status(200).json({
             message: "Updated car"
