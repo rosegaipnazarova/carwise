@@ -1,4 +1,3 @@
-const { boolean } = require("joi")
 const {Schema, model} = require("mongoose")
 
 const Car = new Schema({
@@ -14,6 +13,11 @@ const Car = new Schema({
         maxLength:50,
         required: true,
     },
+    categoryID:{
+        type: Schema.Types.ObjectId,
+        ref:"category",
+        required: true
+    },
     tanirovka : {
         type : Boolean,
         default: false,
@@ -21,14 +25,13 @@ const Car = new Schema({
     },
     motor : {
         type : Number,
-        min:[0.5, "hajm juda kichik" ],
-        max:[10.0, "hajm juda katta"],
+        min:[0.5 , "hajm juda kichik" ],
+        max:[10 , "hajm juda katta"],
         required: true
     },
     year : {
         type : Number,
         required: true,
-        trim: true
 
     },
     color : {
@@ -40,14 +43,13 @@ const Car = new Schema({
     distance : {
         type : Number,
         required: true,
-        trim: true
     },
     gearbox : {
         type : Boolean,
         default: false,
         required: true
     },
-    decription : {
+    description : {
         type : String,
         minLength:5,
         maxLength:200,
@@ -57,7 +59,11 @@ const Car = new Schema({
         type : Number,
         required: true
     },
-    imageUrl : {
+    outImageUrl : {
+        type : String,
+        required: true
+    },
+    inImageUrl : {
         type : String,
         required: true
     }

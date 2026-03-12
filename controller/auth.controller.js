@@ -1,6 +1,5 @@
 const CustomErrorhandler = require("../error/custom-error.handle")
 const AuthSchema = require("../schema/auth.schema")
-const AuthorSchema = require("../schema/author.schema")
 const { access_token } = require("../utils/jwt")
 const sendMessage = require("../utils/send-email")
 const bcrypt = require("bcrypt")
